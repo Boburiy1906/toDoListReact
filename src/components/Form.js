@@ -19,7 +19,7 @@ function Form({setData}) {
         setTodo('')
     };
     return <form className="form" onSubmit={handleSubmit}>
-        <input className="input" type="text" placeholder="Add new list item" required autoComplete="off" onChange={(e)=>{setTodo(e.target.value)}} value={todo}/>
+        <input className="input" type="text" placeholder="Add new list item" required autoComplete="off" onChange={(e)=>{setTodo(e.target.value)}} value={todo} autoFocus/>
         <button className="btn" type="submit">Add</button>
     </form>;
 }

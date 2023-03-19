@@ -1,12 +1,17 @@
 import React from "react";
 import "./TodoList.css";
 
-function TodoList({data}) {
+function TodoList({data, updateData, deleteItem}) {
     return (
         <ul className="list">
-            <li className="list-item">
-                <div className="item-text">
-                    <div className="circle select">
+        {data && data.map((todo)=> {
+            return(
+                <li className="list-item">
+                <div className="item-text" onClick={()=> {
+                    updateData(todo.id)
+                }}>
+                {
+                    todo.selected ?  (<div className="circle select">
                         <svg
                             width="14"
                             height="10"
@@ -21,12 +26,11 @@ function TodoList({data}) {
                                 stroke-linejoin="round"
                             />
                         </svg>
-                    </div>
-                    <div className="circle"></div>
-
-                    <p></p>
+                    </div>) : ( <div className="circle"></div>)
+                }
+                <p>{todo.text}</p>
                 </div>
-                <button className="delete-btn">
+                <button className="delete-btn" onClick={() => {deleteItem(todo.id)}}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="32"
@@ -51,6 +55,9 @@ function TodoList({data}) {
                     </svg>
                 </button>
             </li>
+            )
+        })}
+
         </ul>
     );
 }
