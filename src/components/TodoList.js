@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoList.css";
 
-function TodoList() {
+function TodoList({data}) {
     return (
         <ul className="list">
             <li className="list-item">
@@ -12,8 +12,7 @@ function TodoList() {
                             height="10"
                             viewBox="0 0 14 10"
                             fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M1.66666 5.66667L4.99999 9L12.3333 1.66667"
                                 stroke="white"
